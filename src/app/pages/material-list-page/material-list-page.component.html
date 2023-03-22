@@ -1,0 +1,8 @@
+<ng-container *ngIf="materials$ | async as cache">
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let material of cache">
+            <span>Material:</span>
+            {{ material.Material }}
+        </mat-list-item>
+    </mat-list>
+</ng-container>

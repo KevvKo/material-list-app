@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { MaterialModel, MaterialResponseModel } from '../models';
 
 @Injectable({
@@ -14,10 +14,8 @@ export class MaterialService {
   constructor(private http: HttpClient) { }
 
   get materials(): Observable<MaterialModel[]> {
-    return new Observable( m => {
-      m.next(this._materialList);
-      m.complete();
-    })
+    
+    return of(this._materialList)
   }
 
   public loadMaterials(): Promise<any> {

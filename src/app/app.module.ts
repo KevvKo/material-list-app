@@ -8,14 +8,19 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialService } from './core/services/material.service';
 import { initMaterialLoadFactory } from './shared/utils/init-materials-load';
+import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatListModule } from "@angular/material/list";
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MaterialListPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatListModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
   ],
