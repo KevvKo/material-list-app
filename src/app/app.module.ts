@@ -16,6 +16,7 @@ import { PageHeaderComponent } from './layout/components/page-header/page-header
 import { PageFooterComponent } from './layout/components/page-footer/page-footer.component';
 import { PageMainComponent } from './layout/components/page-main/page-main.component';
 import { DefaultPageComponent } from './layout/container/default-page/default-page.component';
+import { NavListItemComponent } from './features/components/nav-list-item/nav-list-item.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DefaultPageComponent } from './layout/container/default-page/default-pa
     PageFooterComponent,
     PageMainComponent,
     DefaultPageComponent,
+    NavListItemComponent,
   ],
   imports: [
     BrowserModule,
