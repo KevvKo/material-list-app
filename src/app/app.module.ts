@@ -9,18 +9,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialService } from './core/services/material.service';
 import { initMaterialLoadFactory } from './shared/utils/init-materials-load';
 import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatListModule } from "@angular/material/list";
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
+import { PageFooterComponent } from './layout/components/page-footer/page-footer.component';
+import { PageMainComponent } from './layout/components/page-main/page-main.component';
+import { DefaultPageComponent } from './layout/container/default-page/default-page.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialListPageComponent
+    MaterialListPageComponent,
+    PageHeaderComponent,
+    PageFooterComponent,
+    PageMainComponent,
+    DefaultPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatListModule,
+    MatToolbarModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
   ],
