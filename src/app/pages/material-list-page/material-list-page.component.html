@@ -1,8 +1,27 @@
 <ng-container *ngIf="materials$ | async as cache">
-    <mat-list role="list">
+    <mat-nav-list class="flex grow" role="list">
         <mat-list-item role="listitem" *ngFor="let material of cache">
-            <span>Material:</span>
-            {{ material.Material }}
+            <div matListItemTitle>
+                <span>Material:</span>
+                {{ material.Material }}
+            </div>
+            <div matListItemLine>
+                <span>DescTxt:</span>
+                {{ material.DescTxt }}
+            </div>
+            <div matListItemLine>
+                <span>Price;</span>
+                {{ material.CustomerPrice }}
+                {{ material.CustomerCurrency }}
+            </div>
+            <div matListItemLine>
+                <span>Quantity:</span>
+                {{ material.Quantity }}
+            </div>
+            <div matListItemLine>
+                <span>Available:</span>
+                {{ material.Available }}
+            </div>
         </mat-list-item>
-    </mat-list>
+    </mat-nav-list>
 </ng-container>
