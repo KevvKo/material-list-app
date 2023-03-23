@@ -1,5 +1,3 @@
 <ng-container *ngIf="materials$ | async as cache">
-    <mat-nav-list class="flex grow" role="list">
-        <app-nav-list-item *ngFor="let material of cache" [material]="material" />
-    </mat-nav-list>
+    <app-material-list />
 </ng-container>

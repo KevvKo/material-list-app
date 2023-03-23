@@ -9,14 +9,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialService } from './core/services/material.service';
 import { initMaterialLoadFactory } from './shared/utils/init-materials-load';
 import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from "@angular/material/list";
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input'; 
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
 import { PageFooterComponent } from './layout/components/page-footer/page-footer.component';
 import { PageMainComponent } from './layout/components/page-main/page-main.component';
 import { DefaultPageComponent } from './layout/container/default-page/default-page.component';
-import { NavListItemComponent } from './features/components/nav-list-item/nav-list-item.component';
+import { PageContentComponent } from './layout/components/page-content/page-content.component';
+import { DetailOverviewPageComponent } from './pages/detail-overview-page/detail-overview-page.component';
+import { DetailOverviewModalComponent } from './features/components/detail-overview-modal/detail-overview-modal.component';
+import { MaterialListComponent } from './features/components/material-list/material-list.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +31,19 @@ import { NavListItemComponent } from './features/components/nav-list-item/nav-li
     PageFooterComponent,
     PageMainComponent,
     DefaultPageComponent,
-    NavListItemComponent,
+    PageContentComponent,
+    DetailOverviewPageComponent,
+    DetailOverviewModalComponent,
+    MaterialListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatDividerModule,
-    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatTableModule,
     MatToolbarModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
