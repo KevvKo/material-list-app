@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { MaterialModel, MaterialResponseModel } from '../models';
+import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class MaterialService {
   private _materialsUrl = 'assets/materials.json';
   private _materialList: MaterialModel[];
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: Store<{ materials: Array<MaterialModel> }>) { }
 
   get materials(): Observable<MaterialModel[]> {
     
-    return of(this._materialList)
+    return this.store.select("materials")//of(this._materialList)
   }
 
   public loadMaterials(): Promise<any> {

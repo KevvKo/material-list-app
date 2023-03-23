@@ -20,8 +20,10 @@ import { PageMainComponent } from './layout/components/page-main/page-main.compo
 import { DefaultPageComponent } from './layout/container/default-page/default-page.component';
 import { PageContentComponent } from './layout/components/page-content/page-content.component';
 import { DetailOverviewPageComponent } from './pages/detail-overview-page/detail-overview-page.component';
-import { DetailOverviewModalComponent } from './features/components/detail-overview-modal/detail-overview-modal.component';
-import { MaterialListComponent } from './features/components/material-list/material-list.component';
+import { DetailOverviewModalComponent } from './components/detail-overview-modal/detail-overview-modal.component';
+import { MaterialListComponent } from './components/material-list/material-list.component';
+
+import { materialsReducer } from './core/store/reducers/material.reducers';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { MaterialListComponent } from './features/components/material-list/mater
     MatInputModule,
     MatTableModule,
     MatToolbarModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ materials: materialsReducer }),
     BrowserAnimationsModule,
   ],
   providers: [{
