@@ -15,7 +15,6 @@ export class MaterialService {
   constructor(private http: HttpClient, private store: Store<{ materials: Array<MaterialModel> }>) { }
 
   get materials(): Observable<MaterialModel[]> {
-    
     return this.store.select("materials")//of(this._materialList)
   }
 

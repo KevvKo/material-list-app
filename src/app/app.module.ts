@@ -23,7 +23,7 @@ import { DetailOverviewPageComponent } from './pages/detail-overview-page/detail
 import { DetailOverviewModalComponent } from './components/detail-overview-modal/detail-overview-modal.component';
 import { MaterialListComponent } from './components/material-list/material-list.component';
 
-import { materialsReducer } from './core/store/reducers/material.reducers';
+import { MaterialsModule } from './core/store/materials/materials.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { materialsReducer } from './core/store/reducers/material.reducers';
     MatInputModule,
     MatTableModule,
     MatToolbarModule,
-    StoreModule.forRoot({ materials: materialsReducer }),
+    MaterialsModule,
     BrowserAnimationsModule,
   ],
   providers: [{
