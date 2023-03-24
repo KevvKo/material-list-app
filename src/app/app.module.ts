@@ -21,8 +21,8 @@ import { DetailOverviewPageComponent } from './pages/detail-overview-page/detail
 import { DetailOverviewModalComponent } from './components/detail-overview-modal/detail-overview-modal.component';
 import { MaterialListComponent } from './components/material-list/material-list.component';
 
-import { MaterialsModule } from './core/store/materials/materials.module';
-import { SetupService } from './core/services/setup.service';
+import { MaterialsModule } from './core/store/materials.module';
+import { SetupService } from './core/services/setup-service/setup.service';
 
 @NgModule({
   declarations: [

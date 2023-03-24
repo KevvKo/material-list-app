@@ -1,10 +1,17 @@
 import { createReducer, on } from "@ngrx/store";
-import { addItems, bookAmount } from "../actions/material.action";
-import { MaterialModel } from "../../models";
-
-const initialState: Array<MaterialModel> = [];
+import { addItems } from "../actions/material.action";
+import { InitialMaterialsState } from "./materials-state";
 
 export const materialsReducer = createReducer(
-    initialState,
-    on(addItems, (state, {payload}) => [...state, ...payload]),
+    InitialMaterialsState,
+
+    on(addItems, (state, {payload}) => {
+        
+        const newState = {
+            materials: [...payload],
+            currentSelected: state.currentSelected
+        }
+
+        return newState;
+    }),
 )

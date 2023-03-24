@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {  MaterialResponseModel  } from '../models';
-import { MaterialService } from './material.service';
+import {  MaterialResponseModel  } from '../../models';
+import { MaterialService } from '../material-service/material.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +11,7 @@ export class SetupService {
 
   constructor(private http: HttpClient,  private materials: MaterialService) { }
 
-  public loadJSON(): Promise<any> {
+  public async loadJSON(): Promise<any> {
     
     return new Promise((resolve, reject) => {
 

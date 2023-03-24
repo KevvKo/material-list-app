@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MaterialService } from 'src/app/core/services/material.service';
+import { MaterialService } from 'src/app/core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
 import { Observable } from 'rxjs';
 import { OnInit } from '@angular/core';
