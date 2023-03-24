@@ -1,4 +1,4 @@
-import { MaterialModel } from '../../models'
+import { MaterialModel } from '../../core/models';
 
 export type MaterialsState = {
     materials: Array<MaterialModel>

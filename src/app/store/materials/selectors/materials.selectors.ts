@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { MaterialsState } from '../reducers/materials-state';
+import { MaterialsState } from '../materials-state';
 
 export const getMaterialsState = createFeatureSelector<MaterialsState>("materials");
 
