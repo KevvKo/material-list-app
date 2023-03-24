@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initMaterialLoadFactory } from './shared/utils/init-materials-load';
+import { initMaterialLoadFactory } from './core/utils/init-materials-load';
 import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
