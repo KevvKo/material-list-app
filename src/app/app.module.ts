@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialService } from './core/services/material.service';
 import { initMaterialLoadFactory } from './shared/utils/init-materials-load';
 import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
 import { MatButtonModule } from '@angular/material/button'
@@ -24,6 +22,7 @@ import { DetailOverviewModalComponent } from './components/detail-overview-modal
 import { MaterialListComponent } from './components/material-list/material-list.component';
 
 import { MaterialsModule } from './core/store/materials/materials.module';
+import { SetupService } from './core/services/setup.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,7 @@ import { MaterialsModule } from './core/store/materials/materials.module';
   providers: [{
     provide: APP_INITIALIZER,
     useFactory: initMaterialLoadFactory,
-    deps: [MaterialService],
+    deps: [SetupService],
     multi: true
   }],
   bootstrap: [AppComponent]

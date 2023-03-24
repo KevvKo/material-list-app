@@ -1,5 +1,5 @@
-import { MaterialService } from "src/app/core/services/material.service";
+import { SetupService } from '../../core/services/setup.service';
 
-export function initMaterialLoadFactory(provider: MaterialService) {
-    return () => provider.loadMaterials();
+export function initMaterialLoadFactory(provider: SetupService) {
+    return () => provider.loadJSON();
 }
