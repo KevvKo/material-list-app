@@ -1,34 +1,56 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import { Observable, Subscription } from 'rxjs';
 import { MaterialService } from '../../core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-material-list',
   templateUrl: './material-list.component.html',
   styleUrls: ['./material-list.component.css']
 })
-export class MaterialListComponent implements OnInit {
+export class MaterialListComponent implements OnInit, OnDestroy {
 
-  materials$: Observable<MaterialModel[]>
+  materialsSubscription$: Subscription;
+  dataSource: MatTableDataSource<MaterialModel>;
   displayedColumns: string[] = ['material', 'descTxt', 'customerPrice', 'customerCurrency', 'quantity', 'available', 'action'];
-  value = 0;
-
-  constructor(private materialService: MaterialService) { }
-  emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   numberFormControl = new FormControl('', [ 
     Validators.min(0),
     Validators.pattern("^\\d+$")
   ]);
 
+  constructor(private materialService: MaterialService) { }
+
   ngOnInit(): void {
-    this.materials$ = this.materialService.materials
+    this.setuDataSource()
+    this.setupFilterPredicate();
+  }
+
+  ngOnDestroy(): void {
+      this.materialsSubscription$.unsubscribe()
   }
 
   public handleClickBook(materialId:number, amount: string): void {
     if(materialId && amount) this.materialService.bookAmount(materialId, Number(amount));
   }
 
+  public filterDescTxt(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
+  private setuDataSource(): void {
+    this.materialsSubscription$ = this.materialService.materials.subscribe( materials => {
+      this.dataSource = new MatTableDataSource(materials)
+    })
+  }
+
+  private setupFilterPredicate(): void {
+    this.dataSource.filterPredicate = (data: MaterialModel, filter: string): boolean => {
+      return (
+        data.DescTxt.toLocaleLowerCase().includes(filter)
+      )
+    }
+  }
 }
