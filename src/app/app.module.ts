@@ -24,6 +24,7 @@ import { MaterialListComponent } from './components/material-list/material-list.
 
 import { MaterialsModule } from './store/materials/materials.module';
 import { SetupService } from './core/services/setup-service/setup.service';
+import { MaterialListInputComponent } from './components/material-list-input/material-list-input.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SetupService } from './core/services/setup-service/setup.service';
     DetailOverviewPageComponent,
     DetailOverviewModalComponent,
     MaterialListComponent,
+    MaterialListInputComponent,
   ],
   imports: [
     AppRoutingModule,

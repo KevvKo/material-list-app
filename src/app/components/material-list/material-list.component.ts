@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { MaterialService } from '../../core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-material-list',
@@ -15,15 +14,11 @@ export class MaterialListComponent implements OnInit, OnDestroy {
   materialsSubscription$: Subscription;
   dataSource: MatTableDataSource<MaterialModel>;
   displayedColumns: string[] = ['material', 'descTxt', 'customerPrice', 'customerCurrency', 'quantity', 'available', 'action'];
-  numberFormControl = new FormControl('', [ 
-    Validators.min(0),
-    Validators.pattern("^\\d+$")
-  ]);
 
   constructor(private materialService: MaterialService) { }
 
   ngOnInit(): void {
-    this.setuDataSource()
+    this.setupDataSource()
     this.setupFilterPredicate();
   }
 
@@ -31,16 +26,12 @@ export class MaterialListComponent implements OnInit, OnDestroy {
       this.materialsSubscription$.unsubscribe()
   }
 
-  public handleClickBook(materialId:number, amount: string): void {
-    if(materialId && amount) this.materialService.bookAmount(materialId, Number(amount));
-  }
-
   public filterDescTxt(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  private setuDataSource(): void {
+  private setupDataSource(): void {
     this.materialsSubscription$ = this.materialService.materials.subscribe( materials => {
       this.dataSource = new MatTableDataSource(materials)
     })

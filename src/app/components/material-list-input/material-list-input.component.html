@@ -1,0 +1,20 @@
+<mat-form-field class="flex items-center">
+    <mat-label>Amount</mat-label>
+    <input matInput [formControl]="numberFormControl" #amount>
+    <mat-error *ngIf="numberFormControl.hasError('min') && numberFormControl.hasError('pattern')">
+      Please enter a valid positive number
+    </mat-error>
+    <mat-error *ngIf="numberFormControl.hasError('noAvailability')">
+      No further available material!
+    </mat-error>
+    <button 
+      mat-button 
+      matSuffix
+      (click)="handleClickBook(material, amount.value)"
+      mat-raised-button 
+      color="primary" 
+      [disabled]="numberFormControl.invalid"
+    >
+      Book
+    </button>  
+</mat-form-field>          
