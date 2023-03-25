@@ -9,18 +9,38 @@ interface D {
 }
 
 interface PartSet {
-    results: MaterialModel[];
+    results: MaterialResponseModel[];
 }
 
-export interface MaterialModel  {
+export interface MaterialResponseModel  {
     Material: string;
-    Quantity: string;
+    Quantity: number;
     DescTxt: string;
     CustomerPrice: string;
     CustomerCurrency: string;
     RepairPrice: string;
     RepairCurrency: string;
-    Available: string;
+    Available: number;
+    ExtUnit: string;
+    MatStatus: string;
+    StorageLoc: string;
+    StorageLocDesc: string;
+    NDFQuote: string;
+    NDFCounter: string;
+    TSPercentage: string;
+    TSPercentageCounter: string;
+}
+
+export interface MaterialModel  {
+    Id: number,
+    Material: string;
+    Quantity: number;
+    DescTxt: string;
+    CustomerPrice: string;
+    CustomerCurrency: string;
+    RepairPrice: string;
+    RepairCurrency: string;
+    Available: number;
     ExtUnit: string;
     MatStatus: string;
     StorageLoc: string;

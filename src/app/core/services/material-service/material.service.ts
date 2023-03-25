@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MaterialModel } from '../../models';
 import { Store, select } from '@ngrx/store';
-import { addItems } from '../../../store/materials/actions/material.action';
+import { MaterialsActions } from '../../../store/materials/actions/material.action';
 import { getMaterials } from '../../../store/materials/selectors/materials.selectors';
 
 @Injectable({
@@ -19,6 +19,16 @@ export class MaterialService {
   }
 
   public addNewMaterials(materials: MaterialModel[]): void {
-    this.store.dispatch(addItems({ payload: materials }))
+    this.store.dispatch( MaterialsActions.addItems({ payload: materials }))
+  }
+
+  public bookAmount(material: MaterialModel, amount: number): void{
+
+    const payload = {
+      material,
+      amount
+    }
+
+    this.store.dispatch( MaterialsActions.bookAmount({ payload }))
   }
 }

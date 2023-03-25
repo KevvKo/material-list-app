@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {  MaterialResponseModel  } from '../../models';
+import {  MaterialModel, MaterialResponseModel  } from '../../models';
 import { MaterialService } from '../material-service/material.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
+
 export class SetupService {
 
   constructor(private http: HttpClient,  private materials: MaterialService) { }
 
   public async loadJSON(): Promise<any> {
-    
     return new Promise((resolve, reject) => {
 
       this.http.get<MaterialResponseModel>('assets/materials.json')
@@ -25,7 +25,17 @@ export class SetupService {
 
   private assemble(response: MaterialResponseModel): void {
         const data = response.d.PartSet.results
-        localStorage.setItem('materials', JSON.stringify(data))
-        this.materials.addNewMaterials(data)
+        const preparedMaterials = this.mapResponseToId(data);
+        localStorage.setItem('materials', JSON.stringify(preparedMaterials))
+        this.materials.addNewMaterials(preparedMaterials)
+  }
+
+  private mapResponseToId(data: MaterialResponseModel[]): MaterialModel[] {
+    return data.map( (material, index) => {
+      return {
+        Id: index + 1,
+        ...material
+      }
+    })
   }
 }
