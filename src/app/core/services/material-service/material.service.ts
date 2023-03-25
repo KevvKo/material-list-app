@@ -22,10 +22,9 @@ export class MaterialService {
     this.store.dispatch( MaterialsActions.addItems({ payload: materials }))
   }
 
-  public bookAmount(material: MaterialModel, amount: number): void{
-
+  public bookAmount(materialId: number, amount: number): void{
     const payload = {
-      material,
+      materialId,
       amount
     }
 

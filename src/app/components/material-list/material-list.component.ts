@@ -26,10 +26,8 @@ export class MaterialListComponent implements OnInit {
     this.materials$ = this.materialService.materials
   }
 
-  public handleClickBook(material: MaterialModel, amount: string): void {
-    if(material && amount) {
-      this.materialService.bookAmount(material,Number(amount))
-    }
+  public handleClickBook(materialId:number, amount: string): void {
+    if(materialId && amount) this.materialService.bookAmount(materialId, Number(amount));
   }
 
 
