@@ -3,6 +3,7 @@ import { MaterialService } from 'src/app/core/services/material-service/material
 import { MaterialModel } from 'src/app/core/models';
 import { Observable } from 'rxjs';
 import { OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-material-list-page',
   templateUrl: './material-list-page.component.html',
@@ -12,9 +13,7 @@ export class MaterialListPageComponent implements OnInit {
 
   materials$: Observable<MaterialModel[]>
 
-  constructor(private materialService: MaterialService) {
-
-  }
+  constructor(private materialService: MaterialService) {}
 
   ngOnInit(): void {
     this.materials$ = this.materialService.materials

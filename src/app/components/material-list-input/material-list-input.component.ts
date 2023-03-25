@@ -21,7 +21,7 @@ export class MaterialListInputComponent {
 
   public handleClickBook(material: MaterialModel, amount: string): void {
 
-    if (material.Available === 0) {
+    if (material.Available -  Number(amount) < 0) {
       this.numberFormControl.setErrors({noAvailability: true})
       return
     } 
