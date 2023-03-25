@@ -1,5 +1,6 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,8 +39,10 @@ import { SetupService } from './core/services/setup-service/setup.service';
     MaterialListComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
@@ -47,7 +50,7 @@ import { SetupService } from './core/services/setup-service/setup.service';
     MatTableModule,
     MatToolbarModule,
     MaterialsModule,
-    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: APP_INITIALIZER,

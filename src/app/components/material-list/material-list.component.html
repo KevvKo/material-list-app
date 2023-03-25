@@ -28,16 +28,20 @@
             <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
             <td mat-cell *matCellDef="let element" class="">
                 <mat-form-field class="flex items-center">
-                  <mat-label>Count</mat-label>
-                  <input matInput type="number" #amount>
+                  <mat-label>Amount</mat-label>
+                  <input matInput [formControl]="numberFormControl" #amount>
+                  <mat-error *ngIf="numberFormControl.invalid">
+                    Please enter a valid positive number
+                  </mat-error>
                 </mat-form-field>
-                <mat-error *ngIf="!numberFormControl.hasError('pattern')">
-                  Please enter a valid number
-                </mat-error>
-                <mat-error *ngIf="numberFormControl.hasError('min')">
-                  Only positive numbers are allowed
-                </mat-error>
-                <button (click)="handleClickBook(element.Id, amount.value)" mat-raised-button color="primary">Book</button>            
+                <button 
+                  (click)="handleClickBook(element.Id, amount.value)"
+                  mat-raised-button 
+                  color="primary" 
+                  [disabled]="numberFormControl.invalid"
+                >
+                  Book
+                </button>            
             </td>
           </ng-container>
 

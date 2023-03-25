@@ -16,10 +16,10 @@ export class MaterialListComponent implements OnInit {
   value = 0;
 
   constructor(private materialService: MaterialService) { }
-
+  emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   numberFormControl = new FormControl('', [ 
     Validators.min(0),
-    Validators.pattern(/^[0-9]*$/)
+    Validators.pattern("^\\d+$")
   ]);
 
   ngOnInit(): void {
