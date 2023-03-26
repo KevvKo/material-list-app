@@ -7,8 +7,6 @@ import { MaterialModel } from '../../models';
 })
 export class StorageService {
 
-  constructor() { }
-
   public loadData(): Observable<MaterialModel[]> {
     const data = localStorage.getItem("materials")
 

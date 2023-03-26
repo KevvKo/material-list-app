@@ -3,11 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import {  MaterialModel, MaterialResponseModel  } from '../../models';
 import { MaterialService } from '../material-service/material.service';
 import { StorageService } from '../storage-service/storage.service';
+
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class SetupService {
 
   constructor(
@@ -17,7 +16,7 @@ export class SetupService {
   ) { }
 
   public async loadJSON(): Promise<any> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
 
       this.http.get<MaterialResponseModel>('assets/materials.json')
       .subscribe( res => {
