@@ -31,6 +31,10 @@ export class MaterialListComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  public handleClickItem(): void {
+    console.log("test")
+  }
+  
   private setupDataSource(): void {
     this.materialsSubscription$ = this.materialService.materials.subscribe( materials => {
       this.dataSource = new MatTableDataSource(materials)

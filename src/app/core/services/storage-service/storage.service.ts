@@ -11,7 +11,6 @@ export class StorageService {
 
   public loadData(): Observable<MaterialModel[]> {
     const data = localStorage.getItem("materials")
-    console.log("joo")
 
     if(data) { 
       return of(JSON.parse(data) as MaterialModel[]);

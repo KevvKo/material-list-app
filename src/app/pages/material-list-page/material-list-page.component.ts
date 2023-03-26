@@ -18,5 +18,4 @@ export class MaterialListPageComponent implements OnInit {
   ngOnInit(): void {
     this.materials$ = this.materialService.materials
   }
-
 }

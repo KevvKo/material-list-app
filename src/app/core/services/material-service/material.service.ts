@@ -28,7 +28,7 @@ export class MaterialService {
       amount
     }
 
-    this.store.dispatch( MaterialsActions.bookAmount({ payload }))
+    this.store.dispatch( MaterialsActions.updateAmount({ payload }))
   }
 
   public loadMaterials(): void {

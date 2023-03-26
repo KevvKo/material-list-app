@@ -6,7 +6,7 @@ import { InitialMaterialsState } from "./materials-state";
 export const materialsReducer = createReducer(
     InitialMaterialsState,
     on(MaterialsActions.addItems, (state, {payload}) => ({ ...state, materials: [...state.materials, ...payload] })),
-    on(MaterialsActions.bookAmount, (state, {payload}) => {
+    on(MaterialsActions.updateAmountSuccess, (state, {payload}) => {
 
         const { materialId, amount} = payload;
         return {
