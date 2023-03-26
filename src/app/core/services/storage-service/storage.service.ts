@@ -19,7 +19,7 @@ export class StorageService {
     return of([] as MaterialModel[]);
   }
 
-  public updateStorage(data: MaterialModel[]): void {
-    localStorage.setItem("materials", JSON.stringify(data))
+  public updateStorage(state: MaterialModel[]): void {
+    localStorage.setItem("materials", JSON.stringify(state))
   }
 }

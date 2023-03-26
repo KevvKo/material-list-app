@@ -31,7 +31,7 @@ export class MaterialsEffects {
     );
     serialize$ = createEffect(() => 
             this.actions$.pipe(
-                ofType(MaterialsActions.updateAmountSuccess),
+                ofType(MaterialsActions.updateAmountSuccess, MaterialsActions.loadMaterialsSuccess),
                 switchMap(() => this.store.select(getMaterials)),
                 distinctUntilChanged(),
                 tap((materials) => this.storage.updateStorage(materials)),
