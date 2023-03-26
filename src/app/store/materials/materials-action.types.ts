@@ -5,6 +5,10 @@ export interface BookAmountAction {
     materialId: number;
 }
 
+export interface UpdateSelectedMaterialAction {
+    material: MaterialModel
+}
+
 export interface LoadMaterialsSuccessAction {
     materials: MaterialModel[];
 }

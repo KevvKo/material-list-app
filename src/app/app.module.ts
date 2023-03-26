@@ -11,7 +11,8 @@ import { MaterialListPageComponent } from './pages/material-list-page/material-l
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';  
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
@@ -49,6 +50,7 @@ import { MaterialsDetailsDialogComponent } from './components/materials-detail-d
     MatDialogModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatTableModule,
     MatToolbarModule,
     MaterialsModule,

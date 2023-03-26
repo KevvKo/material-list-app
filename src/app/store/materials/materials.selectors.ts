@@ -7,3 +7,8 @@ export const getMaterials = createSelector(
     getMaterialsState,
     (state: MaterialsState) => state.materials
 );
+
+export const getSelectedMaterial = createSelector(
+    getMaterialsState,
+    (state: MaterialsState) => state.currentSelected
+);

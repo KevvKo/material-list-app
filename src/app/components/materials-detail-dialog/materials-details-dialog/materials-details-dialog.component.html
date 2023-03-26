@@ -1,7 +1,63 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-  My favorite animal is:
-  <ul>
-    jo
-  </ul>
-</div>
+<ng-container *ngIf="selectedMaterial as material">
+  <h1 mat-dialog-title>
+    <button (click)="handleClickLeft()" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    Material: {{ material.Material }}
+    <button (click)="handleClickRight()" aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </h1>
+  <mat-dialog-content>
+    <div class="flex flex-row">
+      <div>
+        <mat-list>
+          <mat-list-item>
+            Quantity: {{ material.Quantity }}
+          </mat-list-item>
+          <mat-list-item>
+            DescTxt: {{ material.DescTxt }}
+          </mat-list-item>
+          <mat-list-item>
+            CustomerPrice: {{ material.CustomerPrice }} {{ material.CustomerCurrency }}
+          </mat-list-item>
+          <mat-list-item>
+            RepairPrice: {{ material.RepairPrice }} {{ material.RepairCurrency }}
+          </mat-list-item>
+        </mat-list>      
+      </div>
+      <div>
+        <mat-list>
+          <mat-list-item>
+            Available: {{ material.Available }}
+          </mat-list-item>
+          <mat-list-item>
+            ExtUnit: {{ material.ExtUnit }}
+          </mat-list-item>
+          <mat-list-item>
+            MatStatus: {{ material.MatStatus }}
+          </mat-list-item>
+          <mat-list-item>
+            StorageLoc: {{ material.StorageLoc }}
+          </mat-list-item>
+        </mat-list>      
+      </div>
+      <div>
+        <mat-list>
+          <mat-list-item>
+            MatStatus: {{ material.MatStatus }}
+          </mat-list-item>
+          <mat-list-item>
+            StorageLoc: {{ material.StorageLoc }}
+          </mat-list-item>
+          <mat-list-item>
+            TSPercentage: {{ material.TSPercentage }}
+          </mat-list-item>
+          <mat-list-item>
+            TSPercentageCounter: {{ material.TSPercentageCounter}}
+          </mat-list-item>
+        </mat-list>      
+      </div>
+    </div>
+  </mat-dialog-content>
+</ng-container>

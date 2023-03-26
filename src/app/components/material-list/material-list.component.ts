@@ -33,10 +33,9 @@ export class MaterialListComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  public handleClickTableCell(materialId: string): void {
-    this.dialog.open(MaterialsDetailsDialogComponent, {
-
-    });
+  public handleClickTableCell(material: MaterialModel): void {
+    this.materialService.updateSelectedMaterial(material)
+    this.dialog.open(MaterialsDetailsDialogComponent);
   }
   
   private setupDataSource(): void {

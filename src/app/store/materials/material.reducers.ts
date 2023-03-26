@@ -29,4 +29,16 @@ export const materialsReducer = createReducer(
             materials: [...state.materials, ...payload.materials]
         }
     }),
+    on(MaterialsActions.updateSelectedMaterial, (state, { payload }) => {
+        return {
+            ...state,
+            currentSelected: payload.material
+        }
+    }),
+    on(MaterialsActions.removeSelectedMaterial, (state) => {
+        return {
+            ...state,
+            currentSelected: null
+        }
+    }),
 )

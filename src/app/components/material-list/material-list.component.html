@@ -6,31 +6,31 @@
 <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="material">
         <th mat-header-cell *matHeaderCellDef> Material </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.Material}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.Material}} </td>
       </ng-container>
       <ng-container matColumnDef="descTxt">
         <th mat-header-cell *matHeaderCellDef> DescText </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.DescTxt}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.DescTxt}} </td>
       </ng-container>
       <ng-container matColumnDef="customerPrice">
         <th mat-header-cell *matHeaderCellDef> Customer Price </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.CustomerPrice}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.CustomerPrice}} </td>
       </ng-container>
       <ng-container matColumnDef="customerCurrency">
         <th mat-header-cell *matHeaderCellDef> Customer Currency </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.CustomerCurrency}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.CustomerCurrency}} </td>
       </ng-container>
       <ng-container matColumnDef="quantity">
         <th mat-header-cell *matHeaderCellDef> Quantity </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.Quantity}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.Quantity}} </td>
       </ng-container>
       <ng-container matColumnDef="available">
         <th mat-header-cell *matHeaderCellDef> Available </th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element"> {{element.Available}} </td>
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element"> {{element.Available}} </td>
       </ng-container>
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
-        <td mat-cell (click)="handleClickTableCell(element.Id)" *matCellDef="let element" class="">
+        <td mat-cell (click)="handleClickTableCell(element)" *matCellDef="let element" class="">
             <app-material-list-input [material]="element"/>          
         </td>
       </ng-container>
