@@ -32,6 +32,6 @@ export class MaterialService {
   }
 
   public loadMaterials(): void {
-    
+    this.store.dispatch(MaterialsActions.loadMaterials())
   }
 }

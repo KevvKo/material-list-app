@@ -29,9 +29,9 @@ export class SetupService {
 
   private assemble(response: MaterialResponseModel): void {
         const data = response.d.PartSet.results
-        const preparedMaterials = this.mapResponseToId(data);
-        this.storage.updateStorage(preparedMaterials);
-        this.materials.addNewMaterials(preparedMaterials)
+        const materials = this.mapResponseToId(data);
+        this.storage.updateStorage(materials);
+        this.materials.loadMaterials()
   }
 
   private mapResponseToId(data: MaterialResponseModel[]): MaterialModel[] {

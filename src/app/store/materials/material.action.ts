@@ -1,13 +1,17 @@
 import {createAction, props } from '@ngrx/store';
 import { MaterialModel } from '../../core/models';
-import { BookAmountAction, LoadMaterialsAction } from './materials-action.types';
+import { BookAmountAction, LoadMaterialsSuccessAction } from './materials-action.types';
 
 export const bookAmount = createAction('[MATERIAL] Book Amount', props<{payload: BookAmountAction}> ());
 export const addItems = createAction('[MATERIAL] Add Materials', props<{payload: Array<MaterialModel>}> ());
-export const loadMaterials = createAction('[MATERIAL] Load Materials', props <{payload: LoadMaterialsAction}> ());
+export const loadMaterials = createAction('[MATERIAL] Load Materials');
+export const loadMaterialsSuccess = createAction('[MATERIAL] Load Materials successful', props <{payload: LoadMaterialsSuccessAction}> ());
+export const loadMaterialsError = createAction('[MATTERIAL] Update Photo Error');
 
 export const MaterialsActions = {
     bookAmount,
     addItems,
-    loadMaterials
+    loadMaterials,
+    loadMaterialsError,
+    loadMaterialsSuccess
 }

@@ -24,8 +24,7 @@ export const materialsReducer = createReducer(
             })
         }
     }),
-    on(MaterialsActions.loadMaterials, (state, { payload }) => {
-
+    on(MaterialsActions.loadMaterialsSuccess, (state, { payload }) => {
         return {
             ...state,
             materials: [...state.materials, ...payload.materials]

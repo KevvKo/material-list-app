@@ -5,6 +5,6 @@ export interface BookAmountAction {
     materialId: number;
 }
 
-export interface LoadMaterialsAction {
+export interface LoadMaterialsSuccessAction {
     materials: MaterialModel[];
 }
