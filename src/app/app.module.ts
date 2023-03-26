@@ -25,6 +25,7 @@ import { MaterialListComponent } from './components/material-list/material-list.
 import { MaterialsModule } from './store/materials/materials.module';
 import { SetupService } from './core/services/setup-service/setup.service';
 import { MaterialListInputComponent } from './components/material-list-input/material-list-input.component';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MaterialListInputComponent } from './components/material-list-input/mat
     MatTableModule,
     MatToolbarModule,
     MaterialsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EffectsModule.forRoot([])
   ],
   providers: [{
     provide: APP_INITIALIZER,

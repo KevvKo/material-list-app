@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MaterialModel } from '../../models';
 import { Store, select } from '@ngrx/store';
-import { MaterialsActions } from '../../../store/materials/actions/material.action';
-import { getMaterials } from '../../../store/materials/selectors/materials.selectors';
+import { MaterialsActions } from '../../../store/materials/material.action';
+import { getMaterials } from '../../../store/materials/materials.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,9 @@ export class MaterialService {
     }
 
     this.store.dispatch( MaterialsActions.bookAmount({ payload }))
+  }
+
+  public loadMaterials(): void {
+    
   }
 }

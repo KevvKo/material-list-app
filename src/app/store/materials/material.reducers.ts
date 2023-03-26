@@ -1,7 +1,7 @@
 import { MatError } from "@angular/material/form-field";
 import { createReducer, on } from "@ngrx/store";
-import { MaterialsActions } from "../actions/material.action";
-import { InitialMaterialsState } from "../materials-state";
+import { MaterialsActions } from "./material.action";
+import { InitialMaterialsState } from "./materials-state";
 
 export const materialsReducer = createReducer(
     InitialMaterialsState,
@@ -22,6 +22,13 @@ export const materialsReducer = createReducer(
 
                 return material;
             })
+        }
+    }),
+    on(MaterialsActions.loadMaterials, (state, { payload }) => {
+
+        return {
+            ...state,
+            materials: [...state.materials, ...payload.materials]
         }
     }),
 )

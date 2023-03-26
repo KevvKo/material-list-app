@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  MaterialModel, MaterialResponseModel  } from '../../models';
 import { MaterialService } from '../material-service/material.service';
-
+import { StorageService } from '../storage-service/storage.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,11 @@ import { MaterialService } from '../material-service/material.service';
 
 export class SetupService {
 
-  constructor(private http: HttpClient,  private materials: MaterialService) { }
+  constructor(
+    private http: HttpClient,  
+    private materials: MaterialService,
+    private storage: StorageService,
+  ) { }
 
   public async loadJSON(): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -26,7 +30,7 @@ export class SetupService {
   private assemble(response: MaterialResponseModel): void {
         const data = response.d.PartSet.results
         const preparedMaterials = this.mapResponseToId(data);
-        localStorage.setItem('materials', JSON.stringify(preparedMaterials))
+        this.storage.updateStorage(preparedMaterials);
         this.materials.addNewMaterials(preparedMaterials)
   }
 
