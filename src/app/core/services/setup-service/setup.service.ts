@@ -15,15 +15,13 @@ export class SetupService {
     private storage: StorageService,
   ) { }
 
-  public async loadJSON(): Promise<any> {
-    return new Promise((resolve) => {
+  public loadJSON(): void {
 
       this.http.get<MaterialResponseModel>('assets/materials.json')
       .subscribe( res => {
         this.assemble(res)
-        resolve(true)
       })
-    }).catch(console.error)
+
   }
 
   private assemble(response: MaterialResponseModel): void {

@@ -44,9 +44,7 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {
-        "semi": [1, "always"]
-      }
+      "rules": {}
     }
   ]
 }
