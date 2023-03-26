@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initMaterialLoadFactory } from './core/utils/init-materials-load';
 import { MaterialListPageComponent } from './pages/material-list-page/material-list-page.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input'; 
@@ -18,13 +19,12 @@ import { PageFooterComponent } from './layout/components/page-footer/page-footer
 import { PageMainComponent } from './layout/components/page-main/page-main.component';
 import { DefaultPageComponent } from './layout/container/default-page/default-page.component';
 import { PageContentComponent } from './layout/components/page-content/page-content.component';
-import { DetailOverviewPageComponent } from './pages/detail-overview-page/detail-overview-page.component';
-import { DetailOverviewModalComponent } from './components/detail-overview-modal/detail-overview-modal.component';
 import { MaterialListComponent } from './components/material-list/material-list.component';
 
 import { MaterialsModule } from './store/materials/materials.module';
 import { SetupService } from './core/services/setup-service/setup.service';
 import { MaterialListInputComponent } from './components/material-list-input/material-list-input.component';
+import { MaterialsDetailsDialogComponent } from './components/materials-detail-dialog/materials-details-dialog/materials-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,18 +35,18 @@ import { MaterialListInputComponent } from './components/material-list-input/mat
     PageMainComponent,
     DefaultPageComponent,
     PageContentComponent,
-    DetailOverviewPageComponent,
-    DetailOverviewModalComponent,
     MaterialListComponent,
     MaterialListInputComponent,
+    MaterialsDetailsDialogComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     MatButtonModule,
+    HttpClientModule,
+    MatDialogModule,
     MatIconModule,
     MatInputModule,
     MatTableModule,

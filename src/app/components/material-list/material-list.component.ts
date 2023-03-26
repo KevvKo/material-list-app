@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { MaterialService } from '../../core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { MaterialsDetailsDialogComponent } from '../materials-detail-dialog/materials-details-dialog/materials-details-dialog.component';
 
 @Component({
   selector: 'app-material-list',
@@ -15,7 +17,7 @@ export class MaterialListComponent implements OnInit, OnDestroy {
   dataSource: MatTableDataSource<MaterialModel>;
   displayedColumns: string[] = ['material', 'descTxt', 'customerPrice', 'customerCurrency', 'quantity', 'available', 'action'];
 
-  constructor(private materialService: MaterialService) { }
+  constructor(public dialog: MatDialog, private materialService: MaterialService) { }
 
   ngOnInit(): void {
     this.setupDataSource()
@@ -31,8 +33,10 @@ export class MaterialListComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  public handleClickItem(): void {
-    console.log("test")
+  public handleClickTableCell(materialId: string): void {
+    this.dialog.open(MaterialsDetailsDialogComponent, {
+
+    });
   }
   
   private setupDataSource(): void {
