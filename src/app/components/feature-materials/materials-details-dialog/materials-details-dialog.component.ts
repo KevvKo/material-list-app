@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MaterialModel } from 'src/app/core/models';
 import { MaterialService } from 'src/app/core/services/material-service/material.service';
-import { Subscription, forkJoin, combineLatest } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-materials-details-dialog',

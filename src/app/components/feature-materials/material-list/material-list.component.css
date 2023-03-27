@@ -1,3 +1,4 @@
-.mat-mdc-row:hover .mat-mdc-cell {
-    @apply cursor-pointer bg-slate-100
+.mat-mdc-cell.list-cell {
+    @apply cursor-pointer
+
 }
