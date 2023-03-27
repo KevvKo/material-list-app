@@ -1,11 +1,14 @@
 import { createReducer, on } from "@ngrx/store";
-import { MaterialsActions } from "./material.action";
-import { InitialMaterialsState } from "./materials-state";
+import { InitialMaterialsState } from "../materials-state";
+import { MaterialsLoadAction } from "../actions/materials-load.action";
+import { MaterialsUpdateAmountAction } from "../actions/materials-update-amount.actions";
+import { MaterialsSelectedAction } from "../actions/materials-selected.actions";
+import { MaterialsAddItemsAction } from "../actions/materials-add-items.actions";
 
 export const materialsReducer = createReducer(
     InitialMaterialsState,
-    on(MaterialsActions.addItems, (state, {payload}) => ({ ...state, materials: [...state.materials, ...payload] })),
-    on(MaterialsActions.updateAmountSuccess, (state, {payload}) => {
+    on(MaterialsAddItemsAction.addItems, (state, {payload}) => ({ ...state, materials: [...state.materials, ...payload] })),
+    on(MaterialsUpdateAmountAction.updateAmountSuccess, (state, {payload}) => {
 
         const { materialId, amount} = payload;
         return {
@@ -23,19 +26,19 @@ export const materialsReducer = createReducer(
             })
         }
     }),
-    on(MaterialsActions.loadMaterialsSuccess, (state, { payload }) => {
+    on(MaterialsLoadAction.loadMaterialsSuccess, (state, { payload }) => {
         return {
             ...state,
             materials: [...state.materials, ...payload.materials]
         }
     }),
-    on(MaterialsActions.updateSelectedMaterial, (state, { payload }) => {
+    on(MaterialsSelectedAction.update, (state, { payload }) => {
         return {
             ...state,
             currentSelected: payload.material
         }
     }),
-    on(MaterialsActions.removeSelectedMaterial, (state) => {
+    on(MaterialsSelectedAction.remove, (state) => {
         return {
             ...state,
             currentSelected: null

@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MaterialService } from '../../core/services/material-service/material.service';
+import { MaterialService } from '../../../core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { MaterialsDetailsDialogComponent } from '../materials-detail-dialog/materials-details-dialog/materials-details-dialog.component';
+import { MaterialsDetailsDialogComponent } from '../materials-details-dialog/materials-details-dialog.component';
 
 @Component({
   selector: 'app-material-list',

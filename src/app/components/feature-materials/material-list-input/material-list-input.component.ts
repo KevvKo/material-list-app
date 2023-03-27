@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import { MaterialService } from '../../core/services/material-service/material.service';
+import { MaterialService } from '../../../core/services/material-service/material.service';
 import { MaterialModel } from 'src/app/core/models';
 
 @Component({

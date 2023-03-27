@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MaterialModel } from '../../models';
 import { Store, select } from '@ngrx/store';
-import { MaterialsActions } from '../../../store/materials/material.action';
-import { getMaterials, getSelectedMaterial } from '../../../store/materials/materials.selectors';
-
+import { getMaterials, getSelectedMaterial } from '../../../store/materials/selectors/materials.selectors';
+import { MaterialsAddItemsAction } from 'src/app/store/materials/actions/materials-add-items.actions';
+import { MaterialsUpdateAmountAction } from 'src/app/store/materials/actions/materials-update-amount.actions';
+import { MaterialsLoadAction } from 'src/app/store/materials/actions/materials-load.action';
+import { MaterialsSelectedAction } from 'src/app/store/materials/actions/materials-selected.actions';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +25,7 @@ export class MaterialService {
   }
 
   public addNewMaterials(materials: MaterialModel[]): void {
-    this.store.dispatch( MaterialsActions.addItems({ payload: materials }))
+    this.store.dispatch( MaterialsAddItemsAction .addItems({ payload: materials }))
   }
 
   public bookAmount(materialId: number, amount: number): void{
@@ -32,11 +34,11 @@ export class MaterialService {
       amount
     }
 
-    this.store.dispatch( MaterialsActions.updateAmount({ payload }))
+    this.store.dispatch( MaterialsUpdateAmountAction.updateAmount({ payload }))
   }
 
   public loadMaterials(): void {
-    this.store.dispatch(MaterialsActions.loadMaterials())
+    this.store.dispatch(MaterialsLoadAction.loadMaterials())
   }
 
   public updateSelectedMaterial(material: MaterialModel): void {
@@ -45,11 +47,11 @@ export class MaterialService {
       material
     }
 
-    this.store.dispatch(MaterialsActions.updateSelectedMaterial({ payload }))
+    this.store.dispatch(MaterialsSelectedAction.update({ payload }))
   }
 
   public removeSelectedMaterial(): void {
-    this.store.dispatch(MaterialsActions.removeSelectedMaterial())
+    this.store.dispatch(MaterialsSelectedAction.remove())
   }
 
 }

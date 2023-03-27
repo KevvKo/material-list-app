@@ -1,1 +1,1 @@
-export * from './materials/materials.module';
+export * from './materials/materials-store.module';

@@ -1,6 +1,0 @@
-export * from './material.action'
-export * from './materials-action.types'
-export * from './material.reducers'
-export * from './materials-state'
-export * from './materials.selectors'
-export * from './materials.module'
