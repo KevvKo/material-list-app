@@ -20,15 +20,16 @@ export class MaterialListInputComponent {
   constructor(private materialService: MaterialService) { }
 
   public handleClickBook(material: MaterialModel, amount: string): void {
-
     if (material.Available -  Number(amount) < 0) {
       this.numberFormControl.setErrors({noAvailability: true})
       return
     } 
 
-    if(material && amount) this.materialService.bookAmount(material.Id, Number(amount));
+    if(material && amount) {
+      this.materialService.bookAmount(material.Id, Number(amount));
+    }
     if(this.numberFormControl.hasError("noAvailability")) {
-      this.numberFormControl.setErrors({noAvailability: false})
+      this.numberFormControl.setErrors({noAvailability: false});
     }
   }
 

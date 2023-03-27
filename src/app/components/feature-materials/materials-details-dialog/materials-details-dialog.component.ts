@@ -13,7 +13,7 @@ export class MaterialsDetailsDialogComponent implements OnInit, OnDestroy {
   selectedMaterialsSubscription: Subscription;
   materialsSubscription: Subscription;
 
-  selectedMaterial: MaterialModel | null
+  selectedMaterial: MaterialModel | undefined
   materials: MaterialModel[]
   materialsLength: number;
   selectedMaterialIndex: number;

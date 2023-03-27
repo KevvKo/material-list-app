@@ -3,9 +3,10 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { switchMap,mergeMap, map, catchError, tap, distinctUntilChanged } from "rxjs/operators";
 import { StorageService } from "src/app/core/services/storage-service/storage.service";
-import { getMaterials } from "../selectors/materials.selectors";
+import { getMaterial, getMaterials } from "../selectors/materials.selectors";
 import { MaterialsLoadAction } from "../actions/materials-load.action";
 import { MaterialsUpdateAmountAction } from "../actions/materials-update-amount.actions";
+import { MaterialsSelectedAction } from "../actions/materials-selected.actions";
 
 @Injectable()
 export class MaterialsEffects {
@@ -23,11 +24,18 @@ export class MaterialsEffects {
             ))
         )
     );
-    updateAmout$ = createEffect(() =>
+    updateAmount$ = createEffect(() =>
         this.actions$.pipe(
             ofType(MaterialsUpdateAmountAction.updateAmount),
             map(({payload}) => MaterialsUpdateAmountAction.updateAmountSuccess({payload})),
             catchError(() => [MaterialsUpdateAmountAction.updateAmountError()])
+        )
+    );
+    updateSelectedMaterial$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(MaterialsUpdateAmountAction.updateAmount),
+            switchMap(({payload}) => this.store.select(getMaterial(payload.materialId))),
+            map((material) => MaterialsSelectedAction.update({ payload: { material }})),
         )
     );
     serialize$ = createEffect(() => 

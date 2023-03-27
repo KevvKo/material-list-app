@@ -41,7 +41,7 @@ export const materialsReducer = createReducer(
     on(MaterialsSelectedAction.remove, (state) => {
         return {
             ...state,
-            currentSelected: null
+            currentSelected: undefined
         }
     }),
 )

@@ -2,10 +2,10 @@ import { MaterialModel } from '../../core/models';
 
 export type MaterialsState = {
     materials: Array<MaterialModel>
-    currentSelected: MaterialModel | null
+    currentSelected: MaterialModel | undefined
 }
 
 export const InitialMaterialsState: MaterialsState = {
     materials: [],
-    currentSelected: null
+    currentSelected: undefined
 };

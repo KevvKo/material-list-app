@@ -20,7 +20,7 @@ export class MaterialService {
     return this.store.pipe(select(getMaterials))
   }
 
-  get currentSelectedMaterial(): Observable<MaterialModel | null > { 
+  get currentSelectedMaterial(): Observable<MaterialModel | undefined > { 
     return this.store.pipe(select(getSelectedMaterial))
   }
 

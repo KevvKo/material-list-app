@@ -6,7 +6,7 @@ export interface BookAmountAction {
 }
 
 export interface UpdateSelectedMaterialAction {
-    material: MaterialModel
+    material: MaterialModel | undefined;
 }
 
 export interface LoadMaterialsSuccessAction {
