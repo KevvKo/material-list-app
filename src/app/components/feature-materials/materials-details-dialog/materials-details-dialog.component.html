@@ -1,63 +1,45 @@
 <ng-container *ngIf="selectedMaterial as material">
-  <h1 mat-dialog-title>
-    <button (click)="handleClickLeft()" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+  <div class="flex items-center ml-5">
+    <button (click)="handleClickLeft()" mat-icon-button aria-label="Switch to previ material entry">
       <mat-icon>chevron_left</mat-icon>
     </button>
-    Material: {{ material.Material }}
-    <button (click)="handleClickRight()" aria-label="Example icon button with a vertical three dot icon">
+    <h1 mat-dialog-title>
+      Material: {{ material.Material }}
+    </h1>
+    <button (click)="handleClickRight()" mat-icon-button aria-label="Switch to next material entry">
       <mat-icon>chevron_right</mat-icon>
     </button>
-  </h1>
+  </div>
   <mat-dialog-content>
-    <div class="flex flex-row">
+    <div class="grid gap-5 grid-cols-3">
       <div>
         <mat-list>
-          <mat-list-item>
-            Quantity: {{ material.Quantity }}
-          </mat-list-item>
-          <mat-list-item>
-            DescTxt: {{ material.DescTxt }}
-          </mat-list-item>
-          <mat-list-item>
-            CustomerPrice: {{ material.CustomerPrice }} {{ material.CustomerCurrency }}
-          </mat-list-item>
-          <mat-list-item>
-            RepairPrice: {{ material.RepairPrice }} {{ material.RepairCurrency }}
-          </mat-list-item>
+            <app-material-details-entry subject="Quantity" [value]="material.Quantity"/>
+            <app-material-details-entry subject="Available" [value]="material.Available"/>
+            <app-material-details-entry subject="DescTxt" [value]="material.DescTxt"/>
+            <app-material-details-entry subject="CustomerPrice" [value]="material.CustomerPrice + ' ' + material.CustomerCurrency"/>
+            <app-material-details-entry subject="RepairPrice" [value]="material.RepairPrice + ' ' + material.RepairCurrency"/>
         </mat-list>      
       </div>
       <div>
         <mat-list>
-          <mat-list-item>
-            Available: {{ material.Available }}
-          </mat-list-item>
-          <mat-list-item>
-            ExtUnit: {{ material.ExtUnit }}
-          </mat-list-item>
-          <mat-list-item>
-            MatStatus: {{ material.MatStatus }}
-          </mat-list-item>
-          <mat-list-item>
-            StorageLoc: {{ material.StorageLoc }}
-          </mat-list-item>
+          <app-material-details-entry subject="ExtUnit" [value]="material.ExtUnit"/>
+          <app-material-details-entry subject="MatStatus" [value]="material.MatStatus ? material.MatStatus : 'not available'"/>
+          <app-material-details-entry subject="StorageLoc" [value]="material.StorageLoc"/>
+          <app-material-details-entry subject="StorageLocDesc" [value]="material.StorageLocDesc"/>
+          <app-material-details-entry subject="NDFQuote" [value]="material.NDFQuote"/>
         </mat-list>      
       </div>
       <div>
         <mat-list>
-          <mat-list-item>
-            MatStatus: {{ material.MatStatus }}
-          </mat-list-item>
-          <mat-list-item>
-            StorageLoc: {{ material.StorageLoc }}
-          </mat-list-item>
-          <mat-list-item>
-            TSPercentage: {{ material.TSPercentage }}
-          </mat-list-item>
-          <mat-list-item>
-            TSPercentageCounter: {{ material.TSPercentageCounter}}
-          </mat-list-item>
+          <app-material-details-entry subject="NDFCounter" [value]="material.NDFCounter"/>
+          <app-material-details-entry subject="TSPercentage" [value]="material.TSPercentage"/>
+          <app-material-details-entry subject="TSPercentageCounter" [value]="material.TSPercentageCounter"/>
         </mat-list>      
       </div>
     </div>
   </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
 </ng-container>

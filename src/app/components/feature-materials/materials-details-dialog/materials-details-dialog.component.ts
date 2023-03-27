@@ -1,13 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MaterialModel } from 'src/app/core/models';
-import { Observable, subscribeOn } from 'rxjs';
 import { MaterialService } from 'src/app/core/services/material-service/material.service';
-import { registerLocaleData } from '@angular/common';
 
 @Component({
   selector: 'app-materials-details-dialog',
   templateUrl: './materials-details-dialog.component.html',
-  styleUrls: ['./materials-details-dialog.component.css']
 })
 
 export class MaterialsDetailsDialogComponent implements OnInit, OnDestroy {

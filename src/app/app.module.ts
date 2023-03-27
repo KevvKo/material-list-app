@@ -26,6 +26,7 @@ import { RootStoreModule } from './store/root-store.module';
 import { SetupService } from './core/services/setup-service/setup.service';
 import { MaterialListInputComponent } from './components/feature-materials/material-list-input/material-list-input.component';
 import { MaterialsDetailsDialogComponent } from './components/feature-materials/materials-details-dialog/materials-details-dialog.component';
+import { MaterialDetailEntryComponent } from './components/feature-materials/materials-details-dialog/material-details-entry.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MaterialsDetailsDialogComponent } from './components/feature-materials/
     MaterialListComponent,
     MaterialListInputComponent,
     MaterialsDetailsDialogComponent,
+    MaterialDetailEntryComponent,
   ],
   imports: [
     AppRoutingModule,
