@@ -16,16 +16,17 @@ describe('MaterialsDetailsDialogComponent', () => {
   let store: MockStore<StoreState>;
   let mockGetMaterialsSelector: MemoizedSelector<StoreState, MaterialModel[]>;
 
-  const initialState = { materials: [
+  const initialState = { materials: [], currentSelected: 
     {
-      "Material": "6396734",
-      "Quantity": "2",
+      "Id": 1,
+      "Material": "12345",
+      "Quantity": 2,
       "DescTxt": "E06396734       \\D400",
       "CustomerPrice": "40000.000",
       "CustomerCurrency": "EUR",
       "RepairPrice": "9592.000",
       "RepairCurrency": "EUR",
-      "Available": "16093",
+      "Available": 16093,
       "ExtUnit": "ST",
       "MatStatus": "",
       "StorageLoc": "1000",
@@ -35,8 +36,7 @@ describe('MaterialsDetailsDialogComponent', () => {
       "TSPercentage": "016",
       "TSPercentageCounter": "000001"
     }
-  ], currentSelected: undefined};
-
+  }
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule],
@@ -49,8 +49,27 @@ describe('MaterialsDetailsDialogComponent', () => {
     mockGetMaterialsSelector = store.overrideSelector(getMaterials, 
       [
         {
-          Id: 1,
-          "Material": "6396734",
+          "Id": 1,
+          "Material": "12345",
+          "Quantity": 2,
+          "DescTxt": "E06396734       \\D400",
+          "CustomerPrice": "40000.000",
+          "CustomerCurrency": "EUR",
+          "RepairPrice": "9592.000",
+          "RepairCurrency": "EUR",
+          "Available": 16093,
+          "ExtUnit": "ST",
+          "MatStatus": "",
+          "StorageLoc": "1000",
+          "StorageLocDesc": "10032476",
+          "NDFQuote": "002",
+          "NDFCounter": "000001",
+          "TSPercentage": "016",
+          "TSPercentageCounter": "000001"
+        },
+        {
+          "Id": 1,
+          "Material": "678910",
           "Quantity": 2,
           "DescTxt": "E06396734       \\D400",
           "CustomerPrice": "40000.000",
@@ -76,6 +95,9 @@ describe('MaterialsDetailsDialogComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should contain the current selected material', () => {
     expect(component).toBeTruthy();
   });
 });
