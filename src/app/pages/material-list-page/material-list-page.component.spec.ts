@@ -7,6 +7,7 @@ import { MaterialModel } from 'src/app/core/models';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialListPageComponent } from './material-list-page.component';
+import { MaterialListComponent } from '../../components/feature-materials/material-list/material-list.component';
 
 describe('MaterialListPageComponent', () => {
   let component: MaterialListPageComponent;
@@ -28,7 +29,7 @@ describe('MaterialListPageComponent', () => {
         ReactiveFormsModule, 
       ],
       providers: [ provideMockStore({ initialState }),],
-      declarations: [ MaterialListPageComponent ]
+      declarations: [ MaterialListPageComponent, MaterialListComponent ]
     })
     .compileComponents();
 

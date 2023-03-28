@@ -19,7 +19,9 @@ describe('MaterialListComponent', () => {
     currentSelected: MaterialModel | undefined
   }>;
 
-  const initialState = { materials: [], currentSelected: undefined};
+  const initialState = { materials: [
+    
+  ], currentSelected: undefined};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
